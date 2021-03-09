@@ -1,0 +1,65 @@
+{
+ 
+    "displayName": "7-Zip",
+    "publisher": "WilroffReitsma",
+    "installCommandLine": "7z1900-x64.msi /q /norestart",
+    "uninstallCommandLine": "msiexec /x \"{23170F69-40C1-2702-1900-000001000000}\" /q",
+    "description": "7-zip Installation",
+    "developer": "WilroffReitsma (FSC)",
+    "owner": "WilroffReitsma B.V.",
+    "informationUrl": "https://wilroffreitsma.nl",
+    "privacyInformationUrl": "https://wilroffreitsma.nl/privacybeleid/",
+    "fileName": "IntunePackage.intunewin",
+    "@odata.type": "#microsoft.graph.win32LobApp",
+    "applicableArchitectures": "x64",
+   
+    "installExperience": {
+      "runAsAccount": "user",
+      "deviceRestartBehavior": "allow",
+      "@odata.type": "microsoft.graph.win32LobAppInstallExperience"
+    },
+    "detectionRules": [
+      {
+    "@odata.type": "#microsoft.graph.win32LobAppFileSystemDetection",
+    "path": "%programfiles%\\7-zip",
+    "fileOrFolderName": "7z.exe",
+    "check32BitOn64System": false,
+    "detectionType": "exists" }
+    ],
+        "returncode":  [
+                         {
+                             "returnCode":  0,
+                             "type":  "success",
+                             "@odata.type":  "#microsoft.graph.win32LobAppReturnCode"
+                         },
+                         {
+                             "returnCode":  1707,
+                             "type":  "Success",
+                             "@odata.type":  "#microsoft.graph.win32LobAppReturnCode"
+                         },
+                         {
+                             "returnCode":  1641,
+                             "type":  "hardReboot",
+                             "@odata.type":  "#microsoft.graph.win32LobAppReturnCode"
+                         },
+                         {
+                             "returnCode":  1618,
+                             "type":  "retry",
+                             "@odata.type":  "#microsoft.graph.win32LobAppReturnCode"
+                         },
+                         {
+                             "returnCode":  3010,
+                             "type":  "softReboot",
+                             "@odata.type":  "#microsoft.graph.win32LobAppReturnCode"
+                         }
+                         ],
+    "minimumNumberOfProcessors": "1",
+    "minimumFreeDiskSpaceInMB": "8",
+    "minimumCpuSpeedInMHz": "4",
+    "minimumSupportedOperatingSystem": {
+      "@odata.type": "microsoft.graph.windowsMinimumOperatingSystem",
+      "v10_1607": true
+    },
+    "notes": "Loaded via application script",
+    "minimumMemoryInMB": "1"
+    }
